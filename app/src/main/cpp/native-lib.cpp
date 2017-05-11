@@ -12,6 +12,6 @@ Java_ru_artem_ndktest2_MainActivity_getTestBool(
         jobject) { //класс, которому принадлежит объявление нативного метода в Java. Фактически это this)
 
     Catalog cat;
-    return cat.getResult()
+    return cat.getResult();
     //return true;
 }
