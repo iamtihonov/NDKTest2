@@ -13,5 +13,4 @@ Java_ru_artem_ndktest2_MainActivity_getTestBool(
 
     Catalog cat;
     return cat.getResult();
-    //return true;
 }
