@@ -1,62 +1,60 @@
-# For more information about using CMake with Android Studio, read the
-# documentation: https://d.android.com/studio/projects/add-native-code.html
+# Для получения дополнительной информации об использовании CMake с Android Studio прочитайте
+# Документация: https://d.android.com/studio/projects/add-native-code.html
 
-# Sets the minimum version of CMake required to build the native library.
+# Устанавливает минимальную версию CMake, необходимую для построения собственной библиотеки.
 
 cmake_minimum_required(VERSION 3.4.1)
 
-# Creates and names a library, sets it as either STATIC
-# or SHARED, and provides the relative paths to its source code.
-# You can define multiple libraries, and CMake builds them for you.
-# Gradle automatically packages shared libraries with your APK.
+# Создает и называет библиотеку, устанавливает ее как STATIC
+# bли SHARED, и предоставляет относительные пути к исходному коду.
+# Вы можете определить несколько библиотек, и CMake создаст их для вас.
+# Gradle автоматически упаковывает разделяемые библиотеки с вашим APK.
 
-add_library( # Sets the name of the library.
+add_library( # Устанавливает имя библиотеки.
              native-lib
 
-             # Sets the library as a shared library.
+             # Устанавливает библиотеку как общедоступную
              SHARED
 
-             # Provides a relative path to your source file(s).
+             # Предоставляет относительный путь к исходному файлу (файлам).
              src/main/cpp/native-lib.cpp )
 
-add_library( # Sets the name of the library.
+add_library( # Устанавливает имя библиотеки.
              native-lib-2
 
-             # Sets the library as a shared library.
+             # Устанавливает библиотеку как общедоступную
              SHARED
 
-             # Provides a relative path to your source file(s).
+             # Предоставляет относительный путь к исходному файлу (файлам).
              src/main/cpp/native-lib-2.cpp )
 
+# Ищет указанную заранее подготовленную библиотеку и сохраняет путь как
+# variable. Поскольку CMake включает системные библиотеки в путь поиска по
+# default, вам нужно только указать имя общедоступной библиотеки NDK
+# вы хотите добавить. CMake проверяет, существует ли библиотека ранее
+# завершенной сборки.
 
-
-# Searches for a specified prebuilt library and stores the path as a
-# variable. Because CMake includes system libraries in the search path by
-# default, you only need to specify the name of the public NDK library
-# you want to add. CMake verifies that the library exists before
-# completing its build.
-
-find_library( # Sets the name of the path variable.
+find_library( # Устанавливает имя переменной пути.
               log-lib
 
-              # Specifies the name of the NDK library that
-              # you want CMake to locate.
+              # Определяет имя библиотеки NDK, которую
+              # вы хотите найти CMake.
               log )
 
-# Specifies libraries CMake should link to your target library. You
-# can link multiple libraries, such as libraries you define in this
-# build script, prebuilt third-party libraries, or system libraries.
+# Определяет библиотеки CMake, которые должны ссылаться на вашу целевую библиотеку. Вы
+# может связывать несколько библиотек, таких как библиотеки, которые вы определяете в этом
+# скрипт сборки, предварительно созданные сторонние библиотеки или системные библиотеки.
 
-target_link_libraries( # Specifies the target library.
+target_link_libraries( # Определяет целевую библиотеку.
                        native-lib
 
-                       # Links the target library to the log library
-                       # included in the NDK.
+                       # Связывает целевую библиотеку с библиотекой журналов
+                       # Включено в NDK.
                        ${log-lib} )
 
-target_link_libraries( # Specifies the target library.
+target_link_libraries( # Определяет целевую библиотеку.
                        native-lib-2
 
-                       # Links the target library to the log library
-                       # included in the NDK.
+                       # Связывает целевую библиотеку с библиотекой журналов
+                       # Включено в NDK.
                        ${log-lib} )
