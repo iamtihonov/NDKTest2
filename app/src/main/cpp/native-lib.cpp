@@ -2,6 +2,8 @@
 #include <jni.h>
 #include <string>
 
+#include "catalog.h"
+
 extern "C"//При експорте функций имена их не будут изменятся
 JNIEXPORT jintArray JNICALL
 Java_ru_artem_ndktest2_MainActivity_getTestIntArray(
@@ -16,6 +18,8 @@ Java_ru_artem_ndktest2_MainActivity_getTestIntArray(
     jint a[] = {1, 2, 3, 4, 5, 6};
     jintArray ret = env->NewIntArray(6);
     env->SetIntArrayRegion(ret, 0, 6, a);
+
+    Catalog cat;
 
     return ret;
 }
