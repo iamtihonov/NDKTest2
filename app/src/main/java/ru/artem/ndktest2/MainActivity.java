@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        int [] result = getTestIntArray(99);
+        int [] result = getTestIntArray("ЛЕПС");
         tv.setText("size = " + result.length);
         for(int i = 0; i < result.length; i++) {
             Log.d("test", String.valueOf(result[i]));
         }
     }
 
-    public native int[] getTestIntArray(int first);
+    public native int[] getTestIntArray(String requesr);
 }
