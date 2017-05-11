@@ -2,6 +2,7 @@ package ru.artem.ndktest2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+        int [] result = getTestIntArray();
+        tv.setText("size = " + result.length);
+        for(int i = 0; i < result.length; i++) {
+            Log.d("test", String.valueOf(result[i]));
+        }
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
+    public native int[] getTestIntArray();
 }
