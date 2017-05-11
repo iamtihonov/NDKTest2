@@ -11,7 +11,7 @@ class Catalog
 {
 
     public : //slots
-        std::list<int> *find(const int genreFilter = 0);
+        bool getResult();
 };
 
 
