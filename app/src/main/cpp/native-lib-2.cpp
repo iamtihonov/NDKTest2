@@ -13,9 +13,9 @@ Java_ru_artem_ndktest2_MainActivity_getTestIntArray2(
     std::string message("Hello from C++!");
     __android_log_print(ANDROID_LOG_INFO, tag.c_str(), "%s", message.c_str());//вывод сообщения в лог
 
-    jint a[] = {1, 2, 3, 4, 5};
-    jintArray ret = env->NewIntArray(5);
-    env->SetIntArrayRegion(ret, 0, 5, a);
+    jint a[] = {1, 2, 3, 4};
+    jintArray ret = env->NewIntArray(4);
+    env->SetIntArrayRegion(ret, 0, 4, a);
 
     return ret;
 }

@@ -1,5 +1,5 @@
 # Для получения дополнительной информации об использовании CMake с Android Studio прочитайте
-# Документация: https://d.android.com/studio/projects/add-native-code.html
+# документацию: https://d.android.com/studio/projects/add-native-code.html
 
 # Устанавливает минимальную версию CMake, необходимую для построения собственной библиотеки.
 
@@ -17,7 +17,7 @@ add_library( # Устанавливает имя библиотеки.
              SHARED
 
              # Предоставляет относительный путь к исходному файлу (файлам).
-             src/main/cpp/native-lib.cpp )
+             native-lib.cpp )
 
 add_library( # Устанавливает имя библиотеки.
              native-lib-2
@@ -26,7 +26,7 @@ add_library( # Устанавливает имя библиотеки.
              SHARED
 
              # Предоставляет относительный путь к исходному файлу (файлам).
-             src/main/cpp/native-lib-2.cpp )
+             native-lib-2.cpp )
 
 # Ищет указанную заранее подготовленную библиотеку и сохраняет путь как
 # variable. Поскольку CMake включает системные библиотеки в путь поиска по
